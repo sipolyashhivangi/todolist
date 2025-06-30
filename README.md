@@ -91,3 +91,41 @@ Follow these steps to set up and run the Angular To-Do List application on your 
 5.  **Open in Browser:**
     After the compilation is complete, open your web browser and navigate to `http://localhost:4200/`.
 
+# Project Dependencies
+
+This section outlines the key external libraries and tools required for the Angular To-Do List application.
+
+## Dependencies (Runtime)
+
+These packages are essential for the application to run in a production environment:
+
+* `@angular/animations`
+* `@angular/cdk`
+* `@angular/common`
+* `@angular/compiler`
+* `@angular/core`
+* `@angular/forms`
+* `@angular/material`
+* `@angular/platform-browser`
+* `@angular/platform-browser-dynamic`
+* `@angular/router`
+* `rxjs`
+* `tslib`
+* `zone.js`
+
+## Development Dependencies (Build & Test)
+
+These packages are used during the development, building, and testing phases:
+
+* `@angular-devkit/build-angular`
+* `@angular/cli`
+* `@angular/compiler-cli`
+* `@types/jasmine`
+* `@types/node`
+* `jasmine-core`
+* `karma`
+* `karma-chrome-launcher`
+* `karma-coverage`
+* `karma-jasmine`
+* `karma-jasmine-html-reporter`
+* `typescript`
