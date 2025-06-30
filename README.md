@@ -60,4 +60,34 @@ todolist/
 │   └── styles.scss                         // Global styles applied across the application.
 
 ```
+# How to Run This Project
+
+Follow these steps to set up and run the Angular To-Do List application on your local machine:
+
+1.  **Clone the Repository:**
+    Open your terminal or command prompt and run the following command to clone the project:
+    ```bash
+    git clone https://github.com/sipolyashhivangi/todolist.git
+    ```
+
+2.  **Navigate to the Project Directory:**
+    Change into the newly cloned project directory:
+    ```bash
+    cd todolist
+    ```
+
+3.  **Install Dependencies:**
+    Install all the necessary Node.js packages and Angular dependencies. This might take a few minutes.
+    ```bash
+    npm i
+    ```
+
+4.  **Run the Application:**
+    Once the dependencies are installed, you can start the Angular development server:
+    ```bash
+    ng serve
+    ```
+
+5.  **Open in Browser:**
+    After the compilation is complete, open your web browser and navigate to `http://localhost:4200/`.
 
