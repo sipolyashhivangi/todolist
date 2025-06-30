@@ -2,6 +2,11 @@
 
 This document provides a summary of the Angular To-Do List application, outlining its current functionality, implemented features, and areas for potential improvement based on the provided requirements and screenshots.
 
+## Live Project Link
+
+You can view the live deployed version of this project here:
+[https://todolist-git-main-sipolyashhivangis-projects.vercel.app/](https://todolist-git-main-sipolyashhivangis-projects.vercel.app/)
+
 ## Project Overview
 
 The application is designed as a simple To-Do list, allowing users to manage their tasks. It features two main screens: a Welcome Screen and a To-Do List screen, with navigation handled by Angular routing. The To-Do data is intended to be stored in local storage for persistence.
