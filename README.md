@@ -2,10 +2,12 @@
 
 This document provides a summary of the Angular To-Do List application, outlining its current functionality, implemented features, and areas for potential improvement based on the provided requirements and screenshots.
 
-## Live Project Link
+## Live Project Links
 
-You can view the live deployed version of this project here:
-[https://todolist-git-main-sipolyashhivangis-projects.vercel.app/](https://todolist-git-main-sipolyashhivangis-projects.vercel.app/)
+You can view the live deployed versions of this project at the following links:
+
+* **Surge.sh Link:** [https://1751317960330-internal-behavior.surge.sh/](https://1751317960330-internal-behavior.surge.sh/)
+* **Vercel Link:** [https://todolist-git-main-sipolyashhivangis-projects.vercel.app/](https://todolist-git-main-sipolyashhivangis-projects.vercel.app/)
 
 ## Project Overview
 
