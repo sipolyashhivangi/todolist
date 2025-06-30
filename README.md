@@ -1,2 +1,63 @@
-# todolist
-UI Code Challenge
+# Angular To-Do List Project Summary
+
+This document provides a summary of the Angular To-Do List application, outlining its current functionality, implemented features, and areas for potential improvement based on the provided requirements and screenshots.
+
+## Project Overview
+
+The application is designed as a simple To-Do list, allowing users to manage their tasks. It features two main screens: a Welcome Screen and a To-Do List screen, with navigation handled by Angular routing. The To-Do data is intended to be stored in local storage for persistence.
+
+## Implemented Functionality
+
+Based on the provided descriptions and screenshots, the following functionalities have been successfully implemented:
+
+* **Welcome Screen (landing-page component):**
+    * Displays welcome text (implied by the "Take me to - To do" link).
+    * Includes a "Start" button (labeled "Take me to - To do") that navigates the user to the To-Do List page.
+
+* **To-Do List Screen (todo-list component):**
+    * **Display of To-Dos:** Lists to-do items, categorized into "To do" and "Done" sections.
+    * **Add To-Do Functionality:**
+        * An "Add Todo" button is present, which opens a form for adding new tasks.
+        * The form allows users to input a "Task Name" (description), "Task Description" (additional detail), and a "Due Date."
+        * Tasks can be marked as completed using a checkbox.
+    * **Mark as Done:** Users can mark tasks as complete, moving them to the "Done" section.
+
+* **Component Structure & Routing:**
+    * The application is well-structured with separate components for the landing page (landing-page), the main To-Do module (todo), and sub-components for the To-Do form (todo-form) and list display (todo-list).
+    * Angular routing is correctly set up, allowing navigation between the Welcome Screen and the To-Do List.
+
+## Project Structure
+
+```
+
+todolist/
+├── src/
+│   ├── app/
+│   │   ├── app-routing.module.ts           // Defines main application routes and lazy-loaded modules.
+│   │   ├── app.component.html              // Main HTML template for the root component.
+│   │   ├── app.component.scss              // Styles specific to the root component.
+│   │   ├── app.component.ts                // TypeScript logic for the root application component.
+│   │   ├── app.module.ts                   // Root module, bootstraps the application and declares core elements.
+│   │   ├── todo-service.service.ts         // Service for todo item business logic and data handling.
+│   │   ├── landing-page/
+│   │   │   ├── landing-page.component.html // HTML template for the landing page.
+│   │   │   └── landing-page.component.ts   // TypeScript logic for the landing page component.
+│   │   └── todo/
+│   │       ├── todo-module-routing.ts      // Defines routes specific to the 'todo' feature module.
+│   │       ├── todo.module.ts              // Feature module for 'todo' functionality.
+│   │       ├── todo-form/
+│   │       │   ├── todo-form.component.html// HTML template for the todo creation/editing form.
+│   │       │   └── todo-form.component.ts  // TypeScript logic for the todo form component.
+│   │       └── todo-list/
+│   │           ├── todo-list.component.html// HTML template for displaying the list of todos.
+│   │           └── todo-list.component.ts  // TypeScript logic for the todo list component.
+│   ├── assets/                             // Stores static assets like images and icons.
+│   ├── environments/
+│   │   ├── environment.prod.ts             // Configuration for production build.
+│   │   └── environment.ts                  // Configuration for development build.
+│   ├── index.html                          // Main HTML entry point for the Angular application.
+│   ├── main.ts                             // Primary entry point, bootstraps the root module.
+│   └── styles.scss                         // Global styles applied across the application.
+
+```
+
