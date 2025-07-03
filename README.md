@@ -6,7 +6,7 @@ The application is designed as a simple To-Do list, allowing users to manage the
 
 You can view the live deployed versions of this project at the following links:
 
-* **Surge.sh Link:** [https://1751317960330-internal-behavior.surge.sh/](https://1751317960330-internal-behavior.surge.sh/)
+* **Surge.sh Link:** [https://1751541393877-internal-behavior.surge.sh/ ](https://1751541393877-internal-behavior.surge.sh/ )
 * **Vercel Link:** [https://todolist-git-main-sipolyashhivangis-projects.vercel.app/](https://todolist-git-main-sipolyashhivangis-projects.vercel.app/)
 
 ## Implemented Functionality
