@@ -1,10 +1,61 @@
 
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Todo App</span>
-  
-</mat-toolbar>
 
+<div class="custom-header">
+  <div class="header-left">
+    <div class="dept-title">
+      <span class="dept-main">TODO application</span>
+    </div>
+  </div>
+  <div class="header-center">
+    <nav>
+      <button mat-button [matMenuTriggerFor]="sectionMenu" class="nav-btn active">Section <mat-icon>expand_more</mat-icon></button>
+      <mat-menu #sectionMenu="matMenu" class="section-menu">
+        <button mat-menu-item>TODO Link1</button>
+        <button mat-menu-item>TODO Link2</button>
+        <button mat-menu-item>TODO Link3</button>
+        <button mat-menu-item>TODO Link4</button>
+      </mat-menu>
+      <button mat-button class="nav-btn">Link</button>
+      <span class="search-group">
+        <input matInput placeholder="Search" class="search-input">
+        <button mat-icon-button color="primary" class="search-btn"><mat-icon>search</mat-icon></button>
+      </span>
+    </nav>
+  </div>
+</div>
+<hr>
 <router-outlet></router-outlet>
+
+<footer class="custom-footer">
+  <div class="footer-top-link">
+    <a href="#" class="footer-return-link" (click)="scrollToTop($event)">Return to top</a>
+  </div>
+  <div class="footer-nav">
+     <span class="footer-link">Documentation</span>
+    <span class="footer-link">Features</span>
+    <span class="footer-link">Getting started</span>
+    <span class="footer-link">About us</span>
+  </div>
+  <div class="footer-main">
+    <div class="footer-agency">
+      <div class="footer-agency-logo"></div>
+      <div class="footer-agency-name">
+        TODO Application Center
+      </div>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-socials">
+        <a href="#" class="footer-social-icon" aria-label="Facebook"><mat-icon>facebook</mat-icon></a>
+       
+        <a href="#" class="footer-social-icon" aria-label="RSS"><mat-icon>rss_feed</mat-icon></a>
+      </div>
+      <div class="footer-contact-details">
+        <div class="footer-contact-title">TODO Contact Center</div>
+        <div class="footer-contact-info">
+          <span>(800) CALL-GOVT</span>
+          <span class="footer-contact-email">info@todo.gov</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,3 +1,4 @@
+// src/app/todo-service.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -12,12 +13,11 @@ export interface TodoItem {
 @Injectable({
   providedIn: 'root'
 })
-
 export class TodoServiceService {
   private readonly STORAGE_KEY = 'todos';
   private todosSubject: BehaviorSubject<TodoItem[]>;
-  
-  constructor() { 
+
+  constructor() {
     const initialTodos = this.getTodos();
     this.todosSubject = new BehaviorSubject<TodoItem[]>(initialTodos);
   }
@@ -62,9 +62,21 @@ export class TodoServiceService {
     this.todosSubject.next(todos);
   }
 
-  // Delete a todo (optional)
+  // Add an edit method
+  editTodo(updatedTodo: TodoItem): void {
+    const todos = this.getTodos();
+    const index = todos.findIndex(todo => todo.id === updatedTodo.id);
+    if (index !== -1) {
+      todos[index] = updatedTodo;
+      this.saveTodos(todos);
+    }
+    this.todosSubject.next(todos);
+  }
+
+  // Delete a todo
   deleteTodo(id: number): void {
     const todos = this.getTodos().filter(todo => todo.id !== id);
     this.saveTodos(todos);
+    this.todosSubject.next(todos); // Make sure to notify subscribers after deletion
   }
 }

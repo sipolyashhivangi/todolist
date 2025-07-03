@@ -1,32 +1,36 @@
-<h2 mat-dialog-title>Add Todo</h2>
+
+<h2 mat-dialog-title>{{ data && data.todo ? 'Edit Todo' : 'Add Todo' }}</h2>
 <mat-dialog-content class="mat-typography">
-    <form [formGroup]="todoForm">
-        <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Task Name</mat-label>
-            <input matInput placeholder="pat@example.com" formControlName="name" required>
-            <mat-error *ngIf="todoForm.controls.name.hasError('required')">Required</mat-error>
-        </mat-form-field>
-    </p>
-        <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Task Description</mat-label>
-            <input matInput placeholder="pat@example.com" formControlName="description" required>
-            <mat-error *ngIf="todoForm.controls.description.hasError('required')">Required</mat-error>
-        </mat-form-field>
-    </p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="due_date">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker">
-              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-    </form>
+  <form [formGroup]="todoForm" class="todo-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Task Name</mat-label>
+      <input matInput formControlName="name" required autocomplete="off" />
+      <mat-error *ngIf="todoForm.controls.name.hasError('required')">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Task Description</mat-label>
+      <input matInput formControlName="description" required autocomplete="off" />
+      <mat-error *ngIf="todoForm.controls.description.hasError('required')">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="due_date" required />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="todoForm.controls.due_date.hasError('required')">Required</mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="completed" class="full-width">
+      Mark as completed
+    </mat-checkbox>
+  </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" [mat-dialog-close]="todoForm.value" cdkFocusInitial>Add</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="todoForm.value" [disabled]="!todoForm.valid" cdkFocusInitial>
+    {{ data && data.todo ? 'Update' : 'Add' }}
+  </button>
 </mat-dialog-actions>

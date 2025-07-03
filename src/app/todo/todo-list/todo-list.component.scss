@@ -1,0 +1,72 @@
+.todo-actions {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.action-gap {
+  display: inline-block;
+  width: 1.5rem;
+}
+
+.todo-lists-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.todo-section {
+  flex: 1 1 350px;
+  min-width: 350px;
+}
+
+.todo-list {
+  min-height: 100px;
+  background: #fafbfc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.todo-card {
+  margin-bottom: 1rem;
+  border-left: 4px solid #1a397b;
+}
+
+.todo-card.done {
+  border-left: 4px solid #388e3c;
+  opacity: 0.85;
+}
+
+.todo-checkbox {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.todo-description {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.todo-due-date {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.empty-list {
+  color: #aaa;
+  font-style: italic;
+  margin: 1rem 0;
+  text-align: center;
+}
+.home-btn,
+.add-btn {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.home-btn mat-icon,
+.add-btn mat-icon {
+  margin-right: 0.5rem;
+}

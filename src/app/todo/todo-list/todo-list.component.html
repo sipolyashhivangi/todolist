@@ -1,45 +1,100 @@
-<br/>
-<button mat-raised-button color="primary" (click)="openDialog()">Add Todo</button>
 
+<section class="todo-actions">
+  <button mat-flat-button color="accent" routerLink="/" class="home-btn">
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <span class="action-gap"></span>
+  <button mat-raised-button color="primary" (click)="openAddTodoDialog()" class="add-btn">
+    <mat-icon>add</mat-icon>
+    Add Todo
+  </button>
+</section>
 
-<div class="example-container">
-    <h2>To do</h2>
+<div class="todo-lists-container">
+  <!-- To Do List -->
+  <section class="todo-section">
+    <h2 id="todo-heading">To do</h2>
     <div
       cdkDropList
       #todoList="cdkDropList"
       [cdkDropListData]="todo"
       [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <mat-card class="example-box" *ngFor="let item of pendingtodos$ | async" cdkDrag>
+      class="todo-list"
+      id="todoList"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <mat-card
+        class="todo-card"
+        *ngFor="let item of pendingtodos$ | async"
+        cdkDrag
+      >
+        <mat-card-title>
+          <mat-checkbox
+            class="todo-checkbox"
+            (change)="updateStatus(item.id, $event)"
+          >
+            {{ item.name }}
+          </mat-checkbox>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="todo-description">{{ item.description }}</div>
+          <div class="todo-due-date">Due: {{ item.due_date | date }}</div>
+        </mat-card-content>
         <mat-card-actions>
-            <mat-checkbox class="example-margin"
-            (change)="updateStatus(item.id, $event)">{{item.name}}</mat-checkbox>
-          </mat-card-actions>
-        <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
-        
-    </mat-card>
+          <button mat-icon-button (click)="openEditTodoDialog(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTodo(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <div *ngIf="(pendingtodos$ | async)?.length === 0" class="empty-list">
+        No todos to display.
+      </div>
     </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Done</h2>
-  
+  </section>
+
+  <!-- Done List -->
+  <section class="todo-section">
+    <h2 id="done-heading">Done</h2>
     <div
       cdkDropList
       #doneList="cdkDropList"
       [cdkDropListData]="done"
       [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <mat-card class="example-box" *ngFor="let item of donetodos$ | async" cdkDrag>
+      class="todo-list"
+      id="doneList"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <mat-card
+        class="todo-card done"
+        *ngFor="let item of donetodos$ | async"
+        cdkDrag
+      >
+        <mat-card-title>
+          <mat-checkbox
+            [checked]="true"
+            class="todo-checkbox"
+            (change)="updateStatus(item.id, $event)"
+          >
+            {{ item.name }}
+          </mat-checkbox>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="todo-description">{{ item.description }}</div>
+          <div class="todo-due-date">Due: {{ item.due_date | date }}</div>
+        </mat-card-content>
         <mat-card-actions>
-            <mat-checkbox [checked]=true class="example-margin"
-            (change)="updateStatus(item.id, $event)">{{item.name}}</mat-checkbox>
-          </mat-card-actions>
-        <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
-        
-    </mat-card>
-    </div>
-  </div>
-  
+          <button mat-icon-button (click)="openEditTodoDialog(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTodo(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <div *ngIf="(donetodos$ | async)?.length === 0" class="empty-list">
+        No completed todos.
+      </div>
